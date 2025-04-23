@@ -33,32 +33,63 @@
 
 \begin{document}
 	
-	\begin{titlepage}
-		\centering
-		\vspace*{1cm}
+%	\begin{titlepage}
+%		\centering
+%		\vspace*{1cm}
+%		
+%		\Huge
+%		\textbf{Pelatihan AI untuk Guru}
+%		
+%		\vspace{0.5cm}
+%		
+%		\LARGE
+%		Universitas Pradita
+%		
+%		\vspace{1.5cm}
+%		
+%		\textit{Powered by ChatGPT}
+%		
+%		\vspace{2cm}
+%		
+%		\textbf{Alfa Yohannis}
+%		
+%		\vspace{0.8cm}
+%		
+%		\today
+%		
+%		\vfill
+%	\end{titlepage}
+
+\begin{titlepage}
+	\begin{tikzpicture}[remember picture, overlay]
+		% Gambar latar belakang atau logo
+		\node[anchor=north west, inner sep=0pt] at (current page.north west){
+			\includegraphics[width=4cm]{../figures/logo_universitas.png} % Ganti logo.png dengan path gambarmu
+		};
 		
-		\Huge
-		\textbf{Pelatihan AI untuk Guru}
+		% Judul Tengah
+		\node[anchor=center] at ([yshift=4cm]current page.center) {
+			\begin{minipage}{0.8\textwidth}
+				\centering
+				{\Huge \textbf{Pelatihan AI untuk Guru}}\\[1cm]
+				{\Large Penggunaan Large-language Model}\\[2cm]
+				{\large \textbf{Nama Penulis}}\\[0.3cm]
+				{\large NIM atau ID Penulis}\\[3cm]
+				{\large Program Studi}\\[0.3cm]
+				{\large Universitas atau Institusi}
+			\end{minipage}
+		};
 		
-		\vspace{0.5cm}
-		
-		\LARGE
-		Universitas Pradita
-		
-		\vspace{1.5cm}
-		
-		\textit{Powered by ChatGPT}
-		
-		\vspace{2cm}
-		
-		\textbf{Alfa Yohannis}
-		
-		\vspace{0.8cm}
-		
-		\today
-		
-		\vfill
-	\end{titlepage}
+		% Teks bawah
+		\node[anchor=south] at (current page.south) {
+			\begin{minipage}{\textwidth}
+				\centering
+				{\large \textbf{Bandung, April 2025}}
+				\vspace{1cm}
+			\end{minipage}
+		};
+	\end{tikzpicture}
+\end{titlepage}
 	
 	% Contents Page
 	\tableofcontents
