@@ -1,0 +1,72 @@
+\documentclass[11pt]{book}
+
+\usepackage[utf8]{inputenc}
+\usepackage{listingsutf8}
+\lstset{inputencoding=utf8}
+
+\usepackage[a4paper,outer=3cm,inner=3cm,top=3cm,bottom=3cm]{geometry}
+\usepackage[colorlinks=true, linkcolor=black, citecolor=blue, urlcolor=blue]{hyperref}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\graphicspath{{images/}}
+\usepackage{listings}
+\usepackage{svg}
+
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows.meta, positioning}
+
+\newcommand{\authors}[1]{{\chapterauthor{#1}\addtocontents{toc}{#1\par}}}
+
+\renewcommand{\contentsname}{Daftar Isi}
+\renewcommand{\chaptername}{Bab}
+\renewcommand{\figurename}{Gambar}
+
+\makeatletter
+\newcommand{\chapterauthor}[1]{%
+	{\parindent0pt\vspace*{-25pt}%
+		\linespread{1.1}\large\scshape#1%
+		\par\nobreak\vspace*{35pt}}
+	\@afterheading%
+}
+\makeatother
+
+\begin{document}
+	
+	\begin{titlepage}
+		\centering
+		\vspace*{1cm}
+		
+		\Huge
+		\textbf{Pelatihan AI untuk Guru}
+		
+		\vspace{0.5cm}
+		
+		\LARGE
+		Universitas Pradita
+		
+		\vspace{1.5cm}
+		
+		\textit{Powered by ChatGPT}
+		
+		\vspace{2cm}
+		
+		\textbf{Alfa Yohannis}
+		
+		\vspace{0.8cm}
+		
+		\today
+		
+		\vfill
+	\end{titlepage}
+	
+	% Contents Page
+	\tableofcontents
+	
+	\include{chapter01}
+
+	
+	\backmatter
+	\addcontentsline{toc}{chapter}{Daftar Pustaka}
+	\bibliography{references}
+	
+\end{document}
