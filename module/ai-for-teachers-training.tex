@@ -1,8 +1,18 @@
 \documentclass[11pt]{book}
 
-\usepackage[utf8]{inputenc}
-\usepackage{listingsutf8}
-\lstset{inputencoding=utf8}
+\usepackage{xcolor}
+\usepackage{fontspec}
+\setmainfont[
+Path = fonts/, 
+UprightFont = TitilliumWeb-Regular.ttf,
+BoldFont = TitilliumWeb-Bold.ttf,
+ItalicFont = TitilliumWeb-Italic.ttf,
+BoldItalicFont = TitilliumWeb-BoldItalic.ttf
+]{TitilliumWeb}
+
+%\usepackage[utf8]{inputenc}
+%\usepackage{listingsutf8}
+%\lstset{inputencoding=utf8}
 
 \usepackage{tabularx}
 \usepackage[a4paper,outer=3cm,inner=3cm,top=3cm,bottom=3cm]{geometry}
@@ -17,6 +27,7 @@
 \usetikzlibrary{shapes.geometric, arrows.meta, positioning}
 
 \newcommand{\authors}[1]{{\chapterauthor{#1}\addtocontents{toc}{#1\par}}}
+\newcommand{\HUGE}{\fontsize{40}{48}\selectfont}
 
 \renewcommand{\contentsname}{Daftar Isi}
 \renewcommand{\chaptername}{Bab}
@@ -32,61 +43,39 @@
 \makeatother
 
 \begin{document}
-	
-%	\begin{titlepage}
-%		\centering
-%		\vspace*{1cm}
-%		
-%		\Huge
-%		\textbf{Pelatihan AI untuk Guru}
-%		
-%		\vspace{0.5cm}
-%		
-%		\LARGE
-%		Universitas Pradita
-%		
-%		\vspace{1.5cm}
-%		
-%		\textit{Powered by ChatGPT}
-%		
-%		\vspace{2cm}
-%		
-%		\textbf{Alfa Yohannis}
-%		
-%		\vspace{0.8cm}
-%		
-%		\today
-%		
-%		\vfill
-%	\end{titlepage}
+
 
 \begin{titlepage}
 	\begin{tikzpicture}[remember picture, overlay]
 		% Gambar latar belakang atau logo
-		\node[anchor=north west, inner sep=0pt] at (current page.north west){
-			\includegraphics[width=4cm]{../figures/logo_universitas.png} % Ganti logo.png dengan path gambarmu
+		\node[anchor=north west, inner sep=0pt] at ([xshift=.18\textwidth, yshift=-.1\textwidth] current page.north west){
+			\includegraphics[width=.3\paperwidth]{../figures/logo_universitas.png} 
+		};
+	
+		\node[anchor=north west, inner sep=0pt, opacity=.12] at (current page.north west){
+			\includegraphics[width=\paperwidth]{../figures/building.png}
 		};
 		
 		% Judul Tengah
-		\node[anchor=center] at ([yshift=4cm]current page.center) {
-			\begin{minipage}{0.8\textwidth}
-				\centering
-				{\Huge \textbf{Pelatihan AI untuk Guru}}\\[1cm]
-				{\Large Penggunaan Large-language Model}\\[2cm]
-				{\large \textbf{Nama Penulis}}\\[0.3cm]
-				{\large NIM atau ID Penulis}\\[3cm]
-				{\large Program Studi}\\[0.3cm]
-				{\large Universitas atau Institusi}
+		\node[anchor=center] at ([yshift=.1\textheight]current page.center) {
+			\begin{minipage}{\textwidth}
+				
+				{\LARGE \textbf{Buku Ajar}}\\[0.03\textheight] % Book Type
+				{\HUGE \textcolor{orange}{\textbf{Pelatihan AI untuk Guru}}}\\[.04\textheight] % Title
+				{\Huge \textcolor{orange}{\textbf{Penggunaan Large-language Model}}}\\[.08\textheight] % Subtitle
+				{\LARGE \textbf{Alfa Yohannis}}\\[0.05\textheight] % Authors
 			\end{minipage}
 		};
 		
-		% Teks bawah
-		\node[anchor=south] at (current page.south) {
-			\begin{minipage}{\textwidth}
-				\centering
-				{\large \textbf{Bandung, April 2025}}
-				\vspace{1cm}
-			\end{minipage}
+		% Teks bawah dengan latar oranye penuh dan teks putih
+		\node[anchor=south west] at (
+		current page.south west) {
+			\begin{tikzpicture}[remember picture, overlay]
+				\node[anchor=south west, fill=orange, text=white, minimum width=\paperwidth, minimum height=.14\textheight, align=center, font=\Huge\bfseries] at (-.15,-.15) {
+					Program Studi Informatika\\
+					Pradita University
+				};
+			\end{tikzpicture}
 		};
 	\end{tikzpicture}
 \end{titlepage}
@@ -94,12 +83,14 @@
 	% Contents Page
 	\tableofcontents
 	
+	\include{pendahuluan}
 	\include{chapter01}
 	\include{chapter02}
 	\include{chapter03}
 	\include{chapter04}
 	\include{chapter05}
 	\include{chapter06}
+	\include{penutup}
 
 %	09:00 – 10:00	1. Introduction to LLMs in Education	Overview of AI & LLMs like ChatGPT, examples in teaching, demo session
 %	10:00 – 11:00	2. Smart Lesson & Worksheet Creation	Generate lessons, quizzes, and custom worksheets for diverse learners
